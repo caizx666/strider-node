@@ -15,6 +15,7 @@ module.exports = {
       enum: ['strict', 'loose', 'none'],
       default: 'none',
     },
+    install: { type: String, default: 'install' },
     test: { type: String, default: 'npm test' },
     globals: [
       {

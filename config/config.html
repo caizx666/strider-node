@@ -32,6 +32,27 @@
     </p>
   </div>
 
+  <label for="node-test-install" class="bold-label">Install Command</label>
+  <select
+    id="node-test-install"
+    ng-change="save()"
+    ng-model="config.install"
+    placeholder="Install Command"
+  >
+    <option value="install">npm install</option>
+    <option value="ci">npm ci</option>
+  </select>
+  <p class="help-text">
+    The main differences between using <code>npm install</code> and <code>npm ci</code> are:
+    <ul>
+      <li>The project <strong>must</strong> have an existing <code>package-lock.json</code> or <code>npm-shrinkwrap.json</code>.</li>
+      <li>If dependencies in the package lock do not match those in <code>package.json</code>, <code>npm ci</code> will exit with an error, instead of updating the package lock.</li>
+      <li><code>npm ci</code> can only install entire projects at a time: individual dependencies cannot be added with this command.</li>
+      <li>If a <code>node_modules</code> is already present, it will be automatically removed before <code>npm ci</code> begins its install.</li>
+      <li>It will never write to <code>package.json</code> or any of the package-locks: installs are essentially frozen.</li>
+    </ul>
+  </p>
+
   <label for="node-test-command" class="bold-label">Test Command</label>
   <select
     id="node-test-command"
